@@ -11,8 +11,18 @@
         <div class="col-12">
         <img src="{{$project->thumb}}" alt="{{$project->title}}">
             <p>
+                {{ $project->type->name }}
+            </p>
+            <p>
                 {{ $project->description }}
             </p>
+
+            <h3>Tecnologie utilizzate:</h3>
+                    <ul>
+                        @foreach($project->technologies as $technology)
+                            <li>{{ $technology->name }}</li>
+                        @endforeach
+                    </ul>
             <div class="p-5">
             </div>
             <button class="btn btn-sm btn-success">
