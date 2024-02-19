@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
 use App\Models\Project;
+use App\Models\Technology;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -56,9 +57,9 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Project $project)
-    {
-        return view('admin.show', compact('project'));
+    public function show(Project $project) {
+        $technologies = Technology::all();
+        return view('admin.show', compact('project', 'technologies'));
     }
 
     /**
