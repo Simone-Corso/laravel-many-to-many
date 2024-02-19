@@ -23,6 +23,28 @@
                             <li>{{ $technology->name }}</li>
                         @endforeach
                     </ul>
+                    <div class="container">
+                        <div class="row">
+                            <div class="d-flex justify-content-around">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                            <label class="form-check-label" for="flexSwitchCheckChecked">Computer</label>
+                            </div>
+                            <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                            <label class="form-check-label" for="flexSwitchCheckChecked">laravel</label>
+                            </div>
+                            <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                            <label class="form-check-label" for="flexSwitchCheckChecked">PHP</label>
+                            </div>
+                            <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                            <label class="form-check-label" for="flexSwitchCheckChecked">JavaScript</label>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
             <div class="p-5">
             </div>
             <button class="btn btn-sm btn-success">
