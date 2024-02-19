@@ -17,7 +17,10 @@
                 {{ $project->description }}
             </p>
 
-            <h3>Tecnologie utilizzate:</h3>
+            <h3 class="title text-center pt-5 mb-5">
+                Tecnologie utilizzate:
+
+            </h3>
                     <ul>
                         @foreach($project->technologies as $technology)
                             <li>{{ $technology->name }}</li>
@@ -25,7 +28,7 @@
                     </ul>
                     <div class="container">
                         <div class="row">
-                            <div class="d-flex justify-content-around">
+                            <div class="d-flex justify-content-evenly">
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
                             <label class="form-check-label" for="flexSwitchCheckChecked">Computer</label>
