@@ -36,7 +36,7 @@ class ProjectSeeder extends Seeder
                 "thumb" => "https://techcrunch.com/wp-content/uploads/2021/03/Desktop-Home-1.png?w=730&crop=1"
             ],
             [
-                "type_id" => '4',
+                "type_id" => '2',
                 "title" => "Dropbox",
                 "description" => "Dropbox è un servizio di archiviazione cloud che consente agli utenti di caricare, archiviare e condividere file e documenti digitali su Internet.",
                 "thumb" => "https://aem.dropbox.com/cms/content/dam/dropbox/blog/files/2019/06/new-dropbox-social-preview.png"

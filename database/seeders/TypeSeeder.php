@@ -16,7 +16,7 @@ class TypeSeeder extends Seeder
         $types = [
             'Full-Stack',
             'Back-End',
-            'Front-End'
+            'Front-End',
         ];
 
         foreach ($types as $oneType){
