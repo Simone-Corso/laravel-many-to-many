@@ -31,28 +31,28 @@ class ProjectController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
+{
+    $data = $request->validate([
+        'title' => ['required', 'min:4', 'max:40', Rule::unique('projects')],
+        'thumb' => ['required', 'min:4', 'url:http,https'],
+        'description' => ['required', 'string', 'min:1', 'max:10'],
+    ], [
+        'name.required' => 'Ci deve essere una immagine'
+    ]);
 
+    $formData = $request->all();
+    $newProject = new Project();
+    $newProject->name = $formData['name'];
+    $newProject->thumb = $formData['thumb'];
+    $newProject->description = $formData['description'];
+    $newProject->save();
 
-        $data = $request->validate([
-            'title' => ['required', 'min:4', 'max:40', Rule::unique('projects')],
-            'thumb' => ['required', 'min:4', 'url:http,https'],
-            'description' => ['required', 'string', 'min:1', 'max:10'],
-        ], [
-            'name.required' => 'Ci deve essere una immagine'
-        ]);
+    $technologies = $request->input('technologies', []);
 
-        $formData = $request->all();
-        dd($request->all());
-        $newProject = new Project();
-        $newProject->name = $formData['name'];
-        $newProject->thumb = $formData['thumb'];
-        $newProject->description = $formData['description'];
-        $newProject->save();
+    $newProject->technologies()->attach($technologies);
 
-        return redirect()->route('admin.projects.show', $newProject->id);
-
-    }
+    return redirect()->route('admin.projects.show', $newProject->id);
+}
 
     /**
      * Display the specified resource.
@@ -74,18 +74,19 @@ class ProjectController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, Project $project)
-    {
-        $data = $request->all();
-        
-       
+{
+    $data = $request->all();
 
-        $project->title = $data['title'];
-        $project->thumb = $data['thumb'];
-        $project->description = $data['description'];
-        $project->save();
+    $project->title = $data['title'];
+    $project->thumb = $data['thumb'];
+    $project->description = $data['description'];
+    $project->save();
 
-        return redirect()->route('admin.projects.show', $project->id);
-    }
+    $technologies = $request->input('technologies', []);
+    $project->technologies()->sync($technologies);
+
+    return redirect()->route('admin.projects.show', $project->id);
+}
 
     /**
      * Remove the specified resource from storage.

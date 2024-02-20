@@ -26,12 +26,11 @@
             @foreach ($project->technologies as $technology)
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" role="switch" id="{{ $technology->name }}" checked>
-                    <label class="form-check-label" for="{{ $technology->thumb }}">{{ $technology->thumb }}</label>
+                    <label class="form-check-label" for="{{ $technology->name }}">{{ $technology->name }}</label>
                 </div>
             @endforeach
         </div>
-    </div>
-</div>
+   
             <div class="p-5">
             </div>
             <button class="btn btn-sm btn-success">
