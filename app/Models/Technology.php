@@ -9,6 +9,7 @@ class Technology extends Model
 {
     use HasFactory;
 
+    protected $table;
     protected $fillable = [
         'name',
         'thumb',
