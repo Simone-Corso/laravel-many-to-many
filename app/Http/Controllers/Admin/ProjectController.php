@@ -31,27 +31,20 @@ class ProjectController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-{
-    $data = $request->validate([
-        'title' => ['required', 'min:4', 'max:40', Rule::unique('projects')],
-        'thumb' => ['required', 'min:4', 'url:http,https'],
-        'description' => ['required', 'string', 'min:1', 'max:10'],
-    ], [
-        'name.required' => 'Ci deve essere una immagine'
-    ]);
 
-    $formData = $request->all();
-    $newProject = new Project();
-    $newProject->name = $formData['name'];
-    $newProject->thumb = $formData['thumb'];
-    $newProject->description = $formData['description'];
-    $newProject->save();
+    {
 
-    $technologies = $request->input('technologies', []);
+        $project = new Project($request->only('name'));
 
-    $newProject->technologies()->attach($technologies);
+        $project->save();
 
-    return redirect()->route('admin.projects.show', $newProject->id);
+
+        $technologies = Technology::find($request->technologies);
+
+        $project->technologies()->attach($technologies);
+
+
+    return redirect()->route('admin.projects.show', $project->id);
 }
 
     /**
