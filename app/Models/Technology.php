@@ -15,7 +15,8 @@ class Technology extends Model
         'thumb',
     ];
 
-    public function projects() {
-        return $this->belongsToMany(Project::class)->withTimestamps();
-}
+    public function projects()
+    {
+        return $this->belongsToMany(Project::class);
+    }
 }

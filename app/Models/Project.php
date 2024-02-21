@@ -22,7 +22,8 @@ class Project extends Model
         return $this->belongsto(Type::class);
     }
 
-    public function technologies() {
-        return $this->belongsToMany(Technology::class)->withTimestamps();
-    }
+    public function technologies()
+                                    {
+    return $this->belongsToMany(Technology::class);
+}
 }
