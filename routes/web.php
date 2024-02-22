@@ -22,7 +22,7 @@ Route::middleware('auth')->group(function() {
     
     Route::get('admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('admin/projects', [AdminProjectController::class, 'index'])->name('admin.projects');
-    Route::post('admin/projects/create', [AdminProjectController::class, 'create'])->name('admin.projects.create');
+    Route::get('admin/projects/create', [AdminProjectController::class, 'create'])->name('admin.projects.create');
     Route::post('admin/projects', [AdminProjectController::class, 'store'])->name('admin.projects.store'); 
     Route::get('admin/projects/{project}', [AdminProjectController::class, 'show'])->name('admin.projects.show');
     Route::delete('admin/projects/{project}', [AdminProjectController::class, 'destroy'])->name('admin.projects.destroy');

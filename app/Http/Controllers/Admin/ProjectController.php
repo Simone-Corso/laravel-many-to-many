@@ -24,7 +24,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        return view('admin.create');
     }
 
     /**
@@ -36,7 +36,7 @@ class ProjectController extends Controller
 
         $project = new Project($request->only('name'));
 
-        $project->save();
+        
 
 
         $technologies = Technology::find($request->technologies);
@@ -44,7 +44,7 @@ class ProjectController extends Controller
         $project->technologies()->attach($technologies);
 
 
-    return redirect()->route('admin.projects.show', $project->id);
+    return redirect()->route('admin.show', $project->id);
 }
 
     /**
